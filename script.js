@@ -1,7 +1,10 @@
+const botones = document.querySelectorAll(".ramo");
+
 const prerequisitos = {
   "Anatomía/ fisiología": ["Fundamentos de anatomia para el movimiento humano"],
   "Fisiología de tejidos y biofísica": ["Principios matemáticos"],
   "Química": ["Principios matemáticos"],
+  "Bioquimica": ["Química"],
   "Estadísticas para ciencias de la salud": ["Principios matemáticos"],
   "Fisiopatología y farmacología": ["Anatomía/ fisiología"],
   "Fisiología articular": ["Fisiología de tejidos y biofísica"],
@@ -24,33 +27,28 @@ const prerequisitos = {
   "Seminario de investigación": ["Metodología de la investigación"],
   "Electivo II": ["Electivo I"],
   "Electivo III": ["Electivo II"],
-  "Bioquimica": ["Química"],
   "Inglés básico II": ["Ingles basico I"]
 };
 
-document.querySelectorAll(".ramo").forEach(ramo => {
-  ramo.addEventListener("click", () => {
-    if (ramo.classList.contains("bloqueado")) return;
+botones.forEach(boton => {
+  boton.addEventListener("click", () => {
+    if (boton.disabled) return;
 
-    ramo.classList.toggle("aprobado");
+    boton.classList.toggle("aprobado");
 
-    const aprobado = ramo.classList.contains("aprobado");
-    const nombre = ramo.dataset.nombre;
-
-    document.querySelectorAll(".ramo").forEach(target => {
-      const requisitos = prerequisitos[target.dataset.nombre] || [];
-      if (requisitos.includes(nombre)) {
-        const cumplidos = requisitos.every(req => {
-          const ramoReq = [...document.querySelectorAll(".ramo")].find(r => r.dataset.nombre === req);
-          return ramoReq && ramoReq.classList.contains("aprobado");
-        });
-        if (cumplidos) {
-          target.classList.remove("bloqueado");
-        } else {
-          target.classList.add("bloqueado");
-          target.classList.remove("aprobado");
-        }
-      }
-    });
+    actualizarEstado();
   });
 });
+
+function actualizarEstado() {
+  const aprobados = Array.from(document.querySelectorAll(".ramo.aprobado")).map(b => b.dataset.nombre);
+
+  botones.forEach(boton => {
+    const nombre = boton.dataset.nombre;
+    if (prerequisitos[nombre]) {
+      const requisitos = prerequisitos[nombre];
+      const cumplido = requisitos.every(req => aprobados.includes(req));
+      boton.disabled = !cumplido && !boton.classList.contains("aprobado");
+    }
+  });
+}
