@@ -1,47 +1,62 @@
 body {
   font-family: Arial, sans-serif;
-  background-color: #f3fdfc;
+  background-color: #f0f4f8;
+  margin: 0;
   padding: 20px;
-  color: #333;
 }
 
 h1 {
   text-align: center;
-  margin-bottom: 20px;
+  color: #007c91;
 }
 
 .malla {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 15px;
-  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.semestre {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding: 10px;
+  background-color: #e0f7fa;
+  border: 2px solid #b2ebf2;
+  border-radius: 10px;
+}
+
+.semestre h2 {
+  width: 100%;
+  margin-bottom: 10px;
+  color: #006064;
 }
 
 .ramo {
+  padding: 10px 15px;
+  border-radius: 8px;
   border: 2px solid #ccc;
-  border-radius: 12px;
-  padding: 10px;
-  text-align: center;
-  cursor: pointer;
-  background-color: #e0f7fa;
-  transition: all 0.3s ease;
-  user-select: none;
-}
-
-.ramo:hover {
-  box-shadow: 0 0 10px rgba(0,0,0,0.15);
-}
-
-.ramo.bloqueado {
   background-color: #e0e0e0;
-  color: #999;
+  color: #555;
   cursor: not-allowed;
-  border-color: #ccc;
+  pointer-events: none;
+  user-select: none;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.ramo.desbloqueado {
+  background-color: #b2dfdb;
+  border-color: #00796b;
+  color: #004d40;
+  cursor: pointer;
+  pointer-events: auto;
 }
 
 .ramo.aprobado {
-  background-color: #9ce2d6;
-  border-color: #4dc3b3;
-  color: #075e54;
-  font-weight: bold;
+  background-color: #a5f1e9;
+  border-color: #009688;
+  color: #004d40;
+  text-decoration: line-through;
 }
