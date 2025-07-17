@@ -1,51 +1,50 @@
 body {
   font-family: Arial, sans-serif;
-  background: #f9f9f9;
-  padding: 20px;
-  color: #333;
+  background-image: url('https://images.unsplash.com/photo-1588776814546-ec7e20361f3d'); /* fondo kinesiología */
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+  padding: 2rem;
 }
 
-h1 {
+h1, h2 {
   text-align: center;
-  color: #006666;
-}
-
-.anio {
-  margin-bottom: 30px;
-  border: 2px solid #ccc;
-  padding: 15px;
+  background-color: rgba(0, 100, 120, 0.6);
+  padding: 0.5rem;
   border-radius: 10px;
 }
 
+.malla {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
 .semestre {
-  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
 }
 
-h2, h3 {
-  color: #004d4d;
-}
-
-button.ramo {
-  display: inline-block;
-  margin: 5px;
-  padding: 10px 12px;
+.ramo {
+  padding: 10px;
   border: none;
-  border-radius: 8px;
-  background-color: #b2dfdb;
-  color: #000;
-  font-size: 14px;
+  border-radius: 10px;
+  min-width: 200px;
+  text-align: center;
+  background-color: #a2ded0; /* verde agua */
   cursor: pointer;
-  transition: background-color 0.3s;
+  font-weight: bold;
 }
 
-button.ramo:disabled {
-  background-color: #cccccc;
-  color: #666666;
-  cursor: not-allowed;
-}
-
-button.ramo.aprobado {
-  background-color: #4db6ac;
+.ramo.aprobado {
+  background-color: #66bb99;
   text-decoration: line-through;
-  color: #fff;
+}
+
+.ramo.bloqueado {
+  background-color: #999;
+  cursor: not-allowed;
+  pointer-events: none;
 }
