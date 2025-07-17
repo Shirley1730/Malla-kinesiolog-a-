@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const ramos = document.querySelectorAll(".ramo");
   const aprobados = JSON.parse(localStorage.getItem("ramosAprobados")) || [];
 
-  const desbloquear = () => {
+  const actualizarEstado = () => {
     ramos.forEach((ramo) => {
       const id = ramo.dataset.id;
       const requisitos = ramo.dataset.prerequisitos ? ramo.dataset.prerequisitos.split(",") : [];
@@ -37,9 +37,9 @@ document.addEventListener("DOMContentLoaded", () => {
       }
 
       localStorage.setItem("ramosAprobados", JSON.stringify(aprobados));
-      desbloquear();
+      actualizarEstado();
     });
   });
 
-  desbloquear();
+  actualizarEstado();
 });
