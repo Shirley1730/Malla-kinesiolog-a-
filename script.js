@@ -1,22 +1,42 @@
-document.querySelectorAll('.ramo').forEach(ramo => {
-  ramo.addEventListener('click', () => {
-    if (ramo.classList.contains('bloqueado')) return;
+document.addEventListener("DOMContentLoaded", () => {
+  const ramos = document.querySelectorAll(".ramo");
+  const aprobados = JSON.parse(localStorage.getItem("ramosAprobados")) || [];
 
-    ramo.classList.toggle('aprobado');
+  function actualizarEstado() {
+    ramos.forEach((ramo) => {
+      const id = ramo.dataset.id;
+      const requisitos = ramo.dataset.prerequisitos ? ramo.dataset.prerequisitos.split(",") : [];
 
-    const id = ramo.dataset.id;
-    document.querySelectorAll(`.ramo[data-prereq*="${id}"]`).forEach(dep => {
-      const requisitos = dep.dataset.prereq.split(',');
-      const cumplido = requisitos.every(reqId =>
-        document.querySelector(`.ramo[data-id="${reqId}"]`).classList.contains('aprobado')
-      );
-
-      if (cumplido) {
-        dep.classList.remove('bloqueado');
+      const cumpleRequisitos = requisitos.every((req) => aprobados.includes(req));
+      if (requisitos.length === 0 || cumpleRequisitos) {
+        ramo.classList.remove("bloqueado");
+        ramo.style.pointerEvents = "auto";
       } else {
-        dep.classList.add('bloqueado');
-        dep.classList.remove('aprobado');
+        ramo.classList.add("bloqueado");
+        ramo.style.pointerEvents = "none";
+      }
+
+      if (aprobados.includes(id)) {
+        ramo.classList.add("aprobado");
+      } else {
+        ramo.classList.remove("aprobado");
       }
     });
+  }
+
+  ramos.forEach((ramo) => {
+    ramo.addEventListener("click", () => {
+      const id = ramo.dataset.id;
+      if (aprobados.includes(id)) {
+        const index = aprobados.indexOf(id);
+        aprobados.splice(index, 1);
+      } else {
+        aprobados.push(id);
+      }
+      localStorage.setItem("ramosAprobados", JSON.stringify(aprobados));
+      actualizarEstado();
+    });
   });
+
+  actualizarEstado();
 });
