@@ -1,113 +1,188 @@
-// Lista de ramos con sus prerrequisitos
-const ramos = [
-  { id: "principios_matematicos", nombre: "Principios matemáticos", abre: ["fisiologia_tejidos", "biofisica", "estadisticas"] },
-  { id: "fundamentos_anatomia", nombre: "Fundamentos de anatomía", abre: ["anatomia_fisiologia"] },
-  { id: "biologia_celular", nombre: "Biología celular" },
-  { id: "fundamento_movimiento", nombre: "Fundamento del movimiento humano" },
-  { id: "taller_comunicativas", nombre: "Taller de competencias comunicativas" },
-  { id: "taller_aprendizaje", nombre: "Taller de competencias para el aprendizaje" },
+const ramos = {
+  'Principios matemáticos': [],
+  'Fundamentos de anatomia para el movimiento humano': [],
+  'Biologia celular': [],
+  'Fundamento del movimiento humano': [],
+  'Taller de competencias comunicativas': [],
+  'Taller de competencias para el aprendizaje': [],
 
-  { id: "anatomia_fisiologia", nombre: "Anatomía / Fisiología", abre: ["fisiopatologia", "farmacologia", "desarrollo_psicomotor", "fisiologia_metabolismo", "biomecanica_control"] },
-  { id: "fisiologia_tejidos", nombre: "Fisiología de tejidos y biofísica", abre: ["fisiologia_articular"] },
-  { id: "actividad_salud", nombre: "Actividad física y salud" },
-  { id: "quimica", nombre: "Química", abre: ["bioquimica"] },
-  { id: "cultura_valores", nombre: "Cultura y valores" },
-  { id: "taller_personal_1", nombre: "Taller desarrollo personal I" },
+  'Anatomía/ fisiología': ['Fundamentos de anatomia para el movimiento humano'],
+  'Fisiología de tejidos y biofísica': ['Principios matemáticos'],
+  'Actividad física y salud': [],
+  'Química': [],
+  'Cultura y valores': [],
+  'Taller de desarrollo personal 1': [],
 
-  { id: "estadisticas", nombre: "Estadísticas para ciencias de la salud", abre: ["fundamentos_salud_publica", "metodologia_investigacion"] },
-  { id: "fisiopatologia", nombre: "Fisiopatología y farmacología", abre: ["atencion_prehospitalaria"] },
-  { id: "fisiologia_articular", nombre: "Fisiología articular", abre: ["biomecanica_control", "semiologia"] },
-  { id: "desarrollo_psicomotor", nombre: "Desarrollo psicomotor normal y patológico", abre: ["semiologia"] },
-  { id: "bioquimica", nombre: "Bioquímica" },
-  { id: "ingles1", nombre: "Inglés básico I", abre: ["ingles2"] },
+  'Estadísticas para ciencias de la salud': ['Principios matemáticos'],
+  'Fisiopatología y farmacología': ['Anatomía/ fisiología'],
+  'Fisiología articular': ['Fisiología de tejidos y biofísica'],
+  'Desarrollo psicomotor normal y patológico': ['Anatomía/ fisiología'],
+  'Bioquimica': ['Química'],
+  'Ingles basico I': [],
 
-  { id: "fundamentos_salud_publica", nombre: "Fundamentos en salud pública", abre: ["rehab_salud_comunitaria"] },
-  { id: "biomecanica_control", nombre: "Biomecánica y control motor" },
-  { id: "persona_sentido", nombre: "Persona y sentido" },
-  { id: "semiologia", nombre: "Semiología kinésica e imagenología", abre: ["fisioterapia", "rehab_cardio_inf", "neurorehab_inf"] },
-  { id: "taller_personal_2", nombre: "Taller desarrollo personal II" },
-  { id: "ingles2", nombre: "Inglés básico II" },
+  'Fundamentos en salud pública': ['Estadísticas para ciencias de la salud'],
+  'Biomecánica y control motor': ['Fisiología articular'],
+  'Persona y sentido': [],
+  'Semiologia kinésica e imagenología': ['Fisiología articular', 'Desarrollo psicomotor normal y patológico'],
+  'Taller de desarrollo personal II': [],
+  'Inglés básico II': ['Ingles basico I'],
 
-  { id: "rehab_salud_comunitaria", nombre: "Rehabilitación en base en salud familiar y comunitaria" },
-  { id: "fisiologia_metabolismo", nombre: "Fisiología del metabolismo energético", abre: ["prescripcion_cronicos", "rehab_deportiva"] },
-  { id: "atencion_prehospitalaria", nombre: "Atención prehospitalaria y primeros auxilios" },
-  { id: "gestion_salud", nombre: "Gestión en salud" },
-  { id: "gerontologia", nombre: "Gerontología", abre: ["rehab_geriatrica"] },
-  { id: "fisioterapia", nombre: "Fisioterapia y ejercicio terapéutico", abre: ["rehab_locomotor_inf"] },
+  'Rehabilitación en base en salud familiar y comunitaria': ['Fundamentos en salud pública'],
+  'Fisiología del metabolismo energético y del ejercicio': ['Anatomía/ fisiología'],
+  'Atención pre hospitalaria y primeros auxilios': ['Fisiopatología y farmacología'],
+  'Gestión en salud': [],
+  'Gerontología': [],
+  'Fisioterapia y ejercicio terapéutico': ['Semiologia kinésica e imagenología'],
 
-  { id: "rehab_locomotor_inf", nombre: "Rehab. sistema locomotor infantil", abre: ["rehab_locomotor_adulto"] },
-  { id: "rehab_cardio_inf", nombre: "Rehab. cardiorrespiratoria infantil", abre: ["rehab_cardio_adulto"] },
-  { id: "prescripcion_cronicos", nombre: "Prescripción ejercicio crónicos" },
-  { id: "etica_salud", nombre: "Ética en salud" },
-  { id: "neurorehab_inf", nombre: "Neurorehabilitación infantil", abre: ["neurorehab_adulto"] },
-  { id: "rehab_geriatrica", nombre: "Rehabilitación geriátrica" },
-  { id: "electivo1", nombre: "Electivo I", abre: ["electivo2"] },
+  'Rehabilitación sistema locomotor infantil': ['Fisioterapia y ejercicio terapéutico'],
+  'Rehabilitación cardio respiratorio infantil': ['Semiologia kinésica e imagenología'],
+  'Prescripcion ejercicio en pacientes crónicos': ['Fisiología del metabolismo energético y del ejercicio'],
+  'Etica en salud': [],
+  'Neurorehabilitación infantil': ['Semiologia kinésica e imagenología'],
+  'Rehabilitación geriátrica': ['Gerontología'],
+  'Electivo I': [],
 
-  { id: "rehab_locomotor_adulto", nombre: "Rehab. locomotor adulto" },
-  { id: "rehab_cardio_adulto", nombre: "Rehab. cardio adulto" },
-  { id: "metodologia_investigacion", nombre: "Metodología de la investigación", abre: ["seminario"] },
-  { id: "rehab_deportiva", nombre: "Rehabilitación deportiva" },
-  { id: "neurorehab_adulto", nombre: "Neurorehabilitación adulto" },
-  { id: "salud_ocupacional", nombre: "Salud ocupacional" },
-  { id: "electivo2", nombre: "Electivo II", abre: ["electivo3"] },
+  'Rehabilitación sistema locomotor adulto': ['Rehabilitación sistema locomotor infantil'],
+  'Rehabilitación cardio respiratorio adulto': ['Rehabilitación cardio respiratorio infantil'],
+  'Metodología de la investigación': ['Estadísticas para ciencias de la salud'],
+  'Rehabilitación deportiva': ['Fisiología del metabolismo energético y del ejercicio'],
+  'Neurorehabilitación adulto': ['Neurorehabilitación infantil'],
+  'Salud ocupacional': [],
+  'Electivo II': ['Electivo I'],
 
-  { id: "rehab_especial", nombre: "Rehab. en condiciones especiales" },
-  { id: "tratamiento_cronico", nombre: "Tratamiento kinésico del paciente crónico" },
-  { id: "seminario", nombre: "Seminario de investigación" },
-  { id: "razonamiento_clinico", nombre: "Razonamiento clínico" },
-  { id: "electivo3", nombre: "Electivo III" },
+  'Rehabilitación en condiciones especiales de salud': [],
+  'Tratamiento kinésico del paciente cronico': [],
+  'Seminario de investigación': ['Metodología de la investigación'],
+  'Razonamiento clínico': [],
+  'Electivo III': ['Electivo II'],
 
-  { id: "internado1", nombre: "Internado profesional I y II" },
-  { id: "internado2", nombre: "Internado profesional III y IV" },
-  { id: "actividad_titulacion", nombre: "Actividad de Titulación" }
-];
+  'internado profesional I y II': [],
+  'internado profesional III y IV': [],
+  'ACTIVIDAD DE TITULACIÓN': []
+};
 
-// Estado de aprobación
 const aprobados = new Set();
 
-function crearRamo(ramo) {
-  const div = document.createElement("div");
-  div.classList.add("ramo");
-  div.id = ramo.id;
-  div.textContent = ramo.nombre;
+function crearMalla() {
+  const malla = document.getElementById('malla');
 
-  // Se bloquea si tiene prerequisitos
-  if (tienePrerequisitos(ramo)) {
-    div.classList.add("bloqueado");
-  }
+  let semestres = [
+    ['Primer año - I semestre', [
+      'Principios matemáticos',
+      'Fundamentos de anatomia para el movimiento humano',
+      'Biologia celular',
+      'Fundamento del movimiento humano',
+      'Taller de competencias comunicativas',
+      'Taller de competencias para el aprendizaje'
+    ]],
+    ['Primer año - II semestre', [
+      'Anatomía/ fisiología',
+      'Fisiología de tejidos y biofísica',
+      'Actividad física y salud',
+      'Química',
+      'Cultura y valores',
+      'Taller de desarrollo personal 1'
+    ]],
+    ['Segundo año - III semestre', [
+      'Estadísticas para ciencias de la salud',
+      'Fisiopatología y farmacología',
+      'Fisiología articular',
+      'Desarrollo psicomotor normal y patológico',
+      'Bioquimica',
+      'Ingles basico I'
+    ]],
+    ['Segundo año - IV semestre', [
+      'Fundamentos en salud pública',
+      'Biomecánica y control motor',
+      'Persona y sentido',
+      'Semiologia kinésica e imagenología',
+      'Taller de desarrollo personal II',
+      'Inglés básico II'
+    ]],
+    ['Tercer año - V semestre', [
+      'Rehabilitación en base en salud familiar y comunitaria',
+      'Fisiología del metabolismo energético y del ejercicio',
+      'Atención pre hospitalaria y primeros auxilios',
+      'Gestión en salud',
+      'Gerontología',
+      'Fisioterapia y ejercicio terapéutico'
+    ]],
+    ['Tercer año - VI semestre', [
+      'Rehabilitación sistema locomotor infantil',
+      'Rehabilitación cardio respiratorio infantil',
+      'Prescripcion ejercicio en pacientes crónicos',
+      'Etica en salud',
+      'Neurorehabilitación infantil',
+      'Rehabilitación geriátrica',
+      'Electivo I'
+    ]],
+    ['Cuarto año - VII semestre', [
+      'Rehabilitación sistema locomotor adulto',
+      'Rehabilitación cardio respiratorio adulto',
+      'Metodología de la investigación',
+      'Rehabilitación deportiva',
+      'Neurorehabilitación adulto',
+      'Salud ocupacional',
+      'Electivo II'
+    ]],
+    ['Cuarto año - VIII semestre', [
+      'Rehabilitación en condiciones especiales de salud',
+      'Tratamiento kinésico del paciente cronico',
+      'Seminario de investigación',
+      'Razonamiento clínico',
+      'Electivo III'
+    ]],
+    ['Quinto año - IX semestre', ['internado profesional I y II']],
+    ['Quinto año - X semestre', ['internado profesional III y IV']],
+    ['Actividad de titulación', ['ACTIVIDAD DE TITULACIÓN']]
+  ];
 
-  div.addEventListener("click", () => {
-    if (div.classList.contains("bloqueado")) return;
+  semestres.forEach(([titulo, ramosLista]) => {
+    const semestreDiv = document.createElement('div');
+    semestreDiv.className = 'semestre';
+    const h2 = document.createElement('h2');
+    h2.textContent = titulo;
+    semestreDiv.appendChild(h2);
 
-    // Marcar como aprobado
-    div.classList.add("aprobado");
-    aprobados.add(ramo.id);
-
-    // Desbloquear siguientes
-    (ramo.abre || []).forEach(id => {
-      const siguiente = document.getElementById(id);
-      if (siguiente && puedeDesbloquearse(id)) {
-        siguiente.classList.remove("bloqueado");
-      }
+    ramosLista.forEach(nombre => {
+      const div = document.createElement('div');
+      div.className = 'ramo';
+      div.textContent = nombre;
+      div.dataset.nombre = nombre;
+      semestreDiv.appendChild(div);
     });
+
+    malla.appendChild(semestreDiv);
   });
 
-  return div;
-}
-
-function tienePrerequisitos(ramo) {
-  return ramos.some(r => (r.abre || []).includes(ramo.id));
-}
-
-function puedeDesbloquearse(id) {
-  // Solo se desbloquea si todos sus requisitos están aprobados
-  const requisitos = ramos.filter(r => (r.abre || []).includes(id)).map(r => r.id);
-  return requisitos.every(req => aprobados.has(req));
-}
-
-window.onload = () => {
-  const contenedor = document.getElementById("malla");
-  ramos.forEach(ramo => {
-    contenedor.appendChild(crearRamo(ramo));
+  actualizarEstado();
+  document.querySelectorAll('.ramo').forEach(el => {
+    el.addEventListener('click', () => aprobarRamo(el.dataset.nombre));
   });
-};
+}
+
+function actualizarEstado() {
+  document.querySelectorAll('.ramo').forEach(el => {
+    const nombre = el.dataset.nombre;
+    const requisitos = ramos[nombre] || [];
+    const desbloqueado = requisitos.every(req => aprobados.has(req));
+
+    el.classList.remove('aprobado', 'desbloqueado');
+    if (aprobados.has(nombre)) {
+      el.classList.add('aprobado');
+    } else if (desbloqueado || requisitos.length === 0) {
+      el.classList.add('desbloqueado');
+    }
+  });
+}
+
+function aprobarRamo(nombre) {
+  if (!aprobados.has(nombre)) {
+    aprobados.add(nombre);
+  } else {
+    aprobados.delete(nombre);
+  }
+  actualizarEstado();
+}
+
+crearMalla();
