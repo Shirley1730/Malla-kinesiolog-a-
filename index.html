@@ -3,130 +3,124 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Malla Interactiva de Kinesiología</title>
-  <link rel="stylesheet" href="estilos.css"/>
+  <title>Malla Interactiva Kinesiología</title>
+  <link rel="stylesheet" href="estilos.css" />
 </head>
 <body>
-  <h1>Malla Curricular Kinesiología</h1>
-
+  <h1>Malla Interactiva de Kinesiología</h1>
   <div class="malla">
-    <div class="anio">
-      <h2>Primer Año</h2>
-
+    <!-- Primer Año -->
+    <section>
+      <h2>Primer Año - I Semestre</h2>
       <div class="semestre">
-        <h3>I Semestre</h3>
-        <button class="ramo" data-nombre="Principios matemáticos">Principios matemáticos</button>
-        <button class="ramo" data-nombre="Fundamentos de anatomia para el movimiento humano">Fundamentos de anatomia para el movimiento humano</button>
-        <button class="ramo" data-nombre="Biologia celular">Biologia celular</button>
-        <button class="ramo" data-nombre="Fundamento del movimiento humano">Fundamento del movimiento humano</button>
-        <button class="ramo" data-nombre="Taller de competencias comunicativas">Taller de competencias comunicativas</button>
-        <button class="ramo" data-nombre="Taller de competencias para el aprendizaje">Taller de competencias para el aprendizaje</button>
+        <button class="ramo" id="principios" data-desbloquea="fisiologia,biofisica,estadisticas">Principios matemáticos</button>
+        <button class="ramo" id="fundamentosAnatomia" data-desbloquea="anatomia">Fundamentos de anatomía para el movimiento humano</button>
+        <button class="ramo" id="biologia">Biología celular</button>
+        <button class="ramo" id="fundamentosMovimiento">Fundamento del movimiento humano</button>
+        <button class="ramo" id="comunicacion">Taller de competencias comunicativas</button>
+        <button class="ramo" id="aprendizaje">Taller de competencias para el aprendizaje</button>
       </div>
+    </section>
 
+    <section>
+      <h2>Primer Año - II Semestre</h2>
       <div class="semestre">
-        <h3>II Semestre</h3>
-        <button class="ramo" data-nombre="Anatomía/ fisiología" disabled>Anatomía/ fisiología</button>
-        <button class="ramo" data-nombre="Fisiología de tejidos y biofísica" disabled>Fisiología de tejidos y biofísica</button>
-        <button class="ramo" data-nombre="Actividad física y salud">Actividad física y salud</button>
-        <button class="ramo" data-nombre="Química" disabled>Química</button>
-        <button class="ramo" data-nombre="Cultura y valores">Cultura y valores</button>
-        <button class="ramo" data-nombre="Taller de desarrollo personal 1">Taller de desarrollo personal 1</button>
+        <button class="ramo bloqueado" id="anatomia" data-desbloquea="fisiopatologia,psicomotor,metabolismo,biomecanica">Anatomía / Fisiología</button>
+        <button class="ramo bloqueado" id="fisiologia" data-desbloquea="articular">Fisiología de tejidos y biofísica</button>
+        <button class="ramo" id="actividad">Actividad física y salud</button>
+        <button class="ramo bloqueado" id="quimica" data-desbloquea="bioquimica">Química</button>
+        <button class="ramo" id="valores">Cultura y valores</button>
+        <button class="ramo" id="taller1">Taller de desarrollo personal I</button>
       </div>
-    </div>
+    </section>
 
-    <div class="anio">
-      <h2>Segundo Año</h2>
-
+    <!-- Segundo Año -->
+    <section>
+      <h2>Segundo Año - III Semestre</h2>
       <div class="semestre">
-        <h3>III Semestre</h3>
-        <button class="ramo" data-nombre="Estadísticas para ciencias de la salud" disabled>Estadísticas para ciencias de la salud</button>
-        <button class="ramo" data-nombre="Fisiopatología y farmacología" disabled>Fisiopatología y farmacología</button>
-        <button class="ramo" data-nombre="Fisiología articular" disabled>Fisiología articular</button>
-        <button class="ramo" data-nombre="Desarrollo psicomotor normal y patológico" disabled>Desarrollo psicomotor normal y patológico</button>
-        <button class="ramo" data-nombre="Bioquimica" disabled>Bioquimica</button>
-        <button class="ramo" data-nombre="Ingles basico I">Inglés básico I</button>
+        <button class="ramo bloqueado" id="estadisticas" data-desbloquea="saludPublica,metodologia">Estadísticas para ciencias de la salud</button>
+        <button class="ramo bloqueado" id="fisiopatologia" data-desbloquea="prehospitalaria">Fisiopatología y farmacología</button>
+        <button class="ramo bloqueado" id="articular" data-desbloquea="biomecanica,semiologia">Fisiología articular</button>
+        <button class="ramo bloqueado" id="psicomotor" data-desbloquea="semiologia">Desarrollo psicomotor normal y patológico</button>
+        <button class="ramo bloqueado" id="bioquimica">Bioquímica</button>
+        <button class="ramo" id="ingles1" data-desbloquea="ingles2">Inglés básico I</button>
       </div>
+    </section>
 
+    <section>
+      <h2>Segundo Año - IV Semestre</h2>
       <div class="semestre">
-        <h3>IV Semestre</h3>
-        <button class="ramo" data-nombre="Fundamentos en salud pública" disabled>Fundamentos en salud pública</button>
-        <button class="ramo" data-nombre="Biomecánica y control motor">Biomecánica y control motor</button>
-        <button class="ramo" data-nombre="Persona y sentido">Persona y sentido</button>
-        <button class="ramo" data-nombre="Semiologia kinésica e imagenología" disabled>Semiología kinésica e imagenología</button>
-        <button class="ramo" data-nombre="Taller de desarrollo personal II">Taller de desarrollo personal II</button>
-        <button class="ramo" data-nombre="Inglés básico II" disabled>Inglés básico II</button>
+        <button class="ramo bloqueado" id="saludPublica" data-desbloquea="familiar">Fundamentos en salud pública</button>
+        <button class="ramo bloqueado" id="biomecanica">Biomecánica y control motor</button>
+        <button class="ramo" id="persona">Persona y sentido</button>
+        <button class="ramo bloqueado" id="semiologia" data-desbloquea="fisioterapia,cardioInfantil,neuroInfantil">Semiología kinésica e imagenología</button>
+        <button class="ramo" id="taller2">Taller de desarrollo personal II</button>
+        <button class="ramo bloqueado" id="ingles2">Inglés básico II</button>
       </div>
-    </div>
+    </section>
 
-    <div class="anio">
-      <h2>Tercer Año</h2>
-
+    <!-- Tercer Año -->
+    <section>
+      <h2>Tercer Año - V Semestre</h2>
       <div class="semestre">
-        <h3>V Semestre</h3>
-        <button class="ramo" data-nombre="Rehabilitación en base en salud familiar y comunitaria">Rehabilitación en base en salud familiar y comunitaria</button>
-        <button class="ramo" data-nombre="Fisiología del metabolismo energético y del ejercicio" disabled>Fisiología del metabolismo energético y del ejercicio</button>
-        <button class="ramo" data-nombre="Atención pre hospitalaria y primeros auxilios" disabled>Atención pre hospitalaria y primeros auxilios</button>
-        <button class="ramo" data-nombre="Gestión en salud">Gestión en salud</button>
-        <button class="ramo" data-nombre="Gerontología" disabled>Gerontología</button>
-        <button class="ramo" data-nombre="Fisioterapia y ejercicio terapéutico" disabled>Fisioterapia y ejercicio terapéutico</button>
+        <button class="ramo bloqueado" id="familiar">Rehabilitación en base en salud familiar y comunitaria</button>
+        <button class="ramo bloqueado" id="metabolismo" data-desbloquea="prescripcion,deportiva">Fisiología del metabolismo energético</button>
+        <button class="ramo bloqueado" id="prehospitalaria">Atención prehospitalaria y primeros auxilios</button>
+        <button class="ramo" id="gestion">Gestión en salud</button>
+        <button class="ramo" id="gerontologia" data-desbloquea="geriatrica">Gerontología</button>
+        <button class="ramo bloqueado" id="fisioterapia" data-desbloquea="locomotorInfantil">Fisioterapia y ejercicio terapéutico</button>
       </div>
+    </section>
 
+    <section>
+      <h2>Tercer Año - VI Semestre</h2>
       <div class="semestre">
-        <h3>VI Semestre</h3>
-        <button class="ramo" data-nombre="Rehabilitación sistema locomotor infantil" disabled>Rehabilitación sistema locomotor infantil</button>
-        <button class="ramo" data-nombre="Rehabilitación cardio respiratorio infantil" disabled>Rehabilitación cardio respiratorio infantil</button>
-        <button class="ramo" data-nombre="Prescripcion ejercicio en pacientes crónicos">Prescripción ejercicio en pacientes crónicos</button>
-        <button class="ramo" data-nombre="Etica en salud">Ética en salud</button>
-        <button class="ramo" data-nombre="Neurorehabilitación infantil" disabled>Neurorehabilitación infantil</button>
-        <button class="ramo" data-nombre="Rehabilitación geriátrica" disabled>Rehabilitación geriátrica</button>
-        <button class="ramo" data-nombre="Electivo I">Electivo I</button>
+        <button class="ramo bloqueado" id="locomotorInfantil" data-desbloquea="locomotorAdulto">Rehabilitación sistema locomotor infantil</button>
+        <button class="ramo bloqueado" id="cardioInfantil" data-desbloquea="cardioAdulto">Rehabilitación cardio respiratorio infantil</button>
+        <button class="ramo bloqueado" id="prescripcion">Prescripción ejercicio en pacientes crónicos</button>
+        <button class="ramo" id="etica">Ética en salud</button>
+        <button class="ramo bloqueado" id="neuroInfantil" data-desbloquea="neuroAdulto">Neurorehabilitación infantil</button>
+        <button class="ramo bloqueado" id="geriatrica">Rehabilitación geriátrica</button>
+        <button class="ramo" id="electivo1" data-desbloquea="electivo2">Electivo I</button>
       </div>
-    </div>
+    </section>
 
-    <div class="anio">
-      <h2>Cuarto Año</h2>
-
+    <!-- Cuarto Año -->
+    <section>
+      <h2>Cuarto Año - VII Semestre</h2>
       <div class="semestre">
-        <h3>VII Semestre</h3>
-        <button class="ramo" data-nombre="Rehabilitación sistema locomotor adulto" disabled>Rehabilitación sistema locomotor adulto</button>
-        <button class="ramo" data-nombre="Rehabilitación cardio respiratorio adulto" disabled>Rehabilitación cardio respiratorio adulto</button>
-        <button class="ramo" data-nombre="Metodología de la investigación" disabled>Metodología de la investigación</button>
-        <button class="ramo" data-nombre="Rehabilitación deportiva" disabled>Rehabilitación deportiva</button>
-        <button class="ramo" data-nombre="Neurorehabilitación adulto" disabled>Neurorehabilitación adulto</button>
-        <button class="ramo" data-nombre="Salud ocupacional">Salud ocupacional</button>
-        <button class="ramo" data-nombre="Electivo II" disabled>Electivo II</button>
+        <button class="ramo bloqueado" id="locomotorAdulto">Rehabilitación sistema locomotor adulto</button>
+        <button class="ramo bloqueado" id="cardioAdulto">Rehabilitación cardio respiratorio adulto</button>
+        <button class="ramo bloqueado" id="metodologia" data-desbloquea="seminario">Metodología de la investigación</button>
+        <button class="ramo bloqueado" id="deportiva">Rehabilitación deportiva</button>
+        <button class="ramo bloqueado" id="neuroAdulto">Neurorehabilitación adulto</button>
+        <button class="ramo" id="ocupacional">Salud ocupacional</button>
+        <button class="ramo bloqueado" id="electivo2" data-desbloquea="electivo3">Electivo II</button>
       </div>
+    </section>
 
+    <section>
+      <h2>Cuarto Año - VIII Semestre</h2>
       <div class="semestre">
-        <h3>VIII Semestre</h3>
-        <button class="ramo" data-nombre="Rehabilitación en condiciones especiales de salud">Rehabilitación en condiciones especiales de salud</button>
-        <button class="ramo" data-nombre="Tratamiento kinésico del paciente cronico">Tratamiento kinésico del paciente crónico</button>
-        <button class="ramo" data-nombre="Seminario de investigación" disabled>Seminario de investigación</button>
-        <button class="ramo" data-nombre="Razonamiento clínico">Razonamiento clínico</button>
-        <button class="ramo" data-nombre="Electivo III" disabled>Electivo III</button>
+        <button class="ramo" id="especiales">Rehabilitación en condiciones especiales de salud</button>
+        <button class="ramo" id="cronico">Tratamiento kinésico del paciente crónico</button>
+        <button class="ramo bloqueado" id="seminario">Seminario de investigación</button>
+        <button class="ramo" id="razonamiento">Razonamiento clínico</button>
+        <button class="ramo bloqueado" id="electivo3">Electivo III</button>
       </div>
-    </div>
+    </section>
 
-    <div class="anio">
-      <h2>Quinto Año</h2>
-
+    <!-- Quinto Año -->
+    <section>
+      <h2>Quinto Año - IX y X Semestre</h2>
       <div class="semestre">
-        <h3>IX Semestre</h3>
-        <button class="ramo" data-nombre="Internado profesional I">Internado profesional I</button>
-        <button class="ramo" data-nombre="Internado profesional II">Internado profesional II</button>
+        <button class="ramo" id="internado1">Internado profesional I</button>
+        <button class="ramo" id="internado2">Internado profesional II</button>
+        <button class="ramo" id="internado3">Internado profesional III</button>
+        <button class="ramo" id="internado4">Internado profesional IV</button>
+        <button class="ramo" id="titulacion">Actividad de titulación</button>
       </div>
-
-      <div class="semestre">
-        <h3>X Semestre</h3>
-        <button class="ramo" data-nombre="Internado profesional III">Internado profesional III</button>
-        <button class="ramo" data-nombre="Internado profesional IV">Internado profesional IV</button>
-      </div>
-
-      <div class="semestre">
-        <h3>Actividad de Titulación</h3>
-        <button class="ramo" data-nombre="Actividad de Titulación">Actividad de Titulación</button>
-      </div>
-    </div>
+    </section>
   </div>
 
   <script src="script.js"></script>
