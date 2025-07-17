@@ -1,63 +1,59 @@
 body {
   font-family: Arial, sans-serif;
-  background-color: #f9f9f9;
+  background-color: #f4f4f4;
   margin: 0;
   padding: 20px;
 }
 
 h1 {
   text-align: center;
-  color: #004d40;
+  color: #006d77;
 }
 
 .ano {
   margin-bottom: 40px;
-  border-top: 2px solid #ccc;
-  padding-top: 20px;
+  background: #ffffff;
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
 }
 
 .semestre {
-  margin-bottom: 20px;
+  margin-top: 20px;
 }
 
-.semestre h3 {
-  color: #00796b;
-  margin-bottom: 10px;
+h2, h3 {
+  color: #005f5f;
 }
 
 .ramo {
-  padding: 10px;
-  margin: 5px;
-  border-radius: 10px;
-  cursor: pointer;
   display: inline-block;
-  width: fit-content;
-  max-width: 300px;
-  text-align: center;
-  font-size: 14px;
-  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
-  transition: 0.3s;
+  padding: 10px 12px;
+  margin: 5px;
+  border-radius: 8px;
+  background-color: #e0ffff;
+  color: #333;
+  cursor: pointer;
+  border: 2px solid #b2dfdb;
+  user-select: none;
+  transition: background-color 0.3s, transform 0.2s;
 }
 
 .ramo:hover {
-  transform: scale(1.03);
-}
-
-.ramo.desbloqueado {
-  background-color: #b2dfdb; /* verde agua */
-  color: #004d40;
-  border: 1px solid #004d40;
+  transform: scale(1.05);
 }
 
 .ramo.bloqueado {
-  background-color: #e0e0e0;
-  color: #888;
-  border: 1px solid #aaa;
+  background-color: #ccc;
+  border-color: #aaa;
+  color: #777;
   cursor: not-allowed;
+  text-decoration: none;
 }
 
 .ramo.aprobado {
-  background-color: #4db6ac;
-  color: white;
-  border: 1px solid #004d40;
+  text-decoration: line-through;
+  background-color: #a7ffeb;
+  color: #006d77;
+  border-color: #26a69a;
 }
